@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 export default function Router(){
     const [cartProducts, setCartProducts] = useState([]);
+    
     function updateCartProducts(newCartProducts){
         setCartProducts(newCartProducts);
     }
@@ -19,11 +20,11 @@ export default function Router(){
         },
         {
             path:  "/shop",
-            element: <Shop updateCartProducts={updateCartProducts}/>,
+            element: <Shop savedProducts={cartProducts} updateCartProducts={updateCartProducts}/>,
         },
         {
             path: "/cart",
-            element: <Cart />,
+            element: <Cart cart={cartProducts}/>,
         }
     ]);
     

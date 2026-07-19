@@ -4,9 +4,9 @@ import '../App.css'
 import { useEffect, useState } from "react"
 import js from "@eslint/js";
 
-export default function Shop({updateCartProducts}) {
+export default function Shop({savedProducts, updateCartProducts}) {
   const [products, setProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState(savedProducts);
 
   async function fetchProducts(){
         try{
