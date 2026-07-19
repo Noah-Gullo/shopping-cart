@@ -3,6 +3,7 @@ import Item from "../components/Item.jsx";
 import '../App.css'
 import { useEffect, useState } from "react"
 import js from "@eslint/js";
+import { keyboard } from "@testing-library/user-event/dist/cjs/keyboard/index.js";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
@@ -22,17 +23,23 @@ export default function Shop() {
 
   function handleCartProducts(newProduct){
     const cartProductsCopy = cartProducts;
-    
+
     if(cartProductsCopy.length == 0){
       cartProducts.push(newProduct);
     }
 
     for(let i = 0; i < cartProductsCopy.length; i++){
       if(cartProductsCopy[i].title == newProduct.title){
-        cartProductsCopy.splice(i, 1, newProduct);
+        if(newProduct.count != 0){
+          cartProductsCopy.splice(i, 1, newProduct);
+        }else{
+          cartProductsCopy.splice(i, 1);
+        }
         break;
       }else if(i == cartProductsCopy.length - 1){
-        cartProductsCopy.push(newProduct);
+        if(newProduct.count != 0){
+          cartProductsCopy.push(newProduct);
+        }
       }
     }
 
