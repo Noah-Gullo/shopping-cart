@@ -20,6 +20,7 @@
     display: flex;
     justify-self: center;
     font-size: 2.5em;
+    margin: 0.3em;
 }
 
 #home p{
@@ -54,6 +55,9 @@
     border: 2px solid black;
     border-radius: 0.5em;
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .itemImg{
@@ -64,4 +68,13 @@
 .itemTitle{
     width: 15em;
     height: auto;
+}
+
+.stockFields{
+    display: flex;
+    gap: 0.2em;
+}
+
+.stockFields button{
+    width: 1.5em;
 }
