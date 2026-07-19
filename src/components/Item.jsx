@@ -1,24 +1,30 @@
 import { useState } from "react";
-export default function Item({title="Example Title", image, description, price, stock}){
+export default function Item({title="Example Title", image, description, price, stock, handleCartProducts}){
     const [count, setCount] = useState(0);
 
     function handleChange(newCount){
+        const currItem = {"title": title, "image": image, "price": price, "count": newCount};
         if(newCount >= 0 && newCount <= stock){        
             setCount(newCount);
+            handleCartProducts(currItem);
         }
     }
 
     function incrementCount(){
         const newCount = count + 1;
+        const currItem = {"title": title, "image": image, "price": price, "count": newCount};
         if(newCount <= stock){
             setCount(newCount);
+            handleCartProducts(currItem)
         }
     }
 
     function decrementCount(){
         const newCount = count -1;
+        const currItem = {"title": title, "image": image, "price": price, "count": newCount};
         if(newCount >= 0){
             setCount(newCount);
+            handleCartProducts(currItem);
         }
     }
 

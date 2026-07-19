@@ -6,6 +6,7 @@ import js from "@eslint/js";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
 
   async function fetchProducts(){
     try{
@@ -18,6 +19,27 @@ export default function Shop() {
       console.log(error);
     }
   } 
+
+  function handleCartProducts(newProduct){
+    const cartProductsCopy = cartProducts;
+    
+    if(cartProductsCopy.length == 0){
+      cartProducts.push(newProduct);
+    }
+
+    for(let i = 0; i < cartProductsCopy.length; i++){
+      if(cartProductsCopy[i].title == newProduct.title){
+        cartProductsCopy.splice(i, 1, newProduct);
+        break;
+      }else if(i == cartProductsCopy.length - 1){
+        cartProductsCopy.push(newProduct);
+      }
+    }
+
+    setCartProducts(cartProductsCopy);
+    console.log(cartProducts);
+  }
+
 
   useEffect(() => {
     let ignore = false;
@@ -36,7 +58,9 @@ export default function Shop() {
         <h1 className="title">Shop</h1>
         <div id="itemContainer">
           {products.map(product => (
-            <Item key={product.title} title={product.title} image={product.image} description={product.description} price={product.price} stock={product.rating.count}></Item>
+            <Item key={product.title} title={product.title} image={product.image} 
+            description={product.description} price={product.price} stock={product.rating.count}
+            handleCartProducts={handleCartProducts}></Item>
           ))}
         </div>
     </div>
