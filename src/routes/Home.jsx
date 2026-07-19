@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div id="home">
         <Navbar></Navbar>
-        <h1>Home</h1>
+        <h1 className="title">Home</h1>
         <p id="left-description">Welcome to Fake Mart! Please note that this is not a real shopping store, it is just a project to test routers 
           and testing frameworks. Feel free to click around on the different pages. There is a mock shop and a mock cart that will
           update as you add items from the shop into your cart.</p>
