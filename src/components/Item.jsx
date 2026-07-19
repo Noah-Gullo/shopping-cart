@@ -9,14 +9,16 @@ export default function Item({title="Example Title", image, description, price, 
     }
 
     function incrementCount(){
-        if(count + 1 <= stock){
-            setCount(count + 1);
+        const newCount = count + 1;
+        if(newCount <= stock){
+            setCount(newCount);
         }
     }
 
     function decrementCount(){
-        if(count - 1 >= 0){
-            setCount(count - 1);
+        const newCount = count -1;
+        if(newCount >= 0){
+            setCount(newCount);
         }
     }
 
@@ -29,6 +31,7 @@ export default function Item({title="Example Title", image, description, price, 
                 <input type="number" value={count} placeholder="0" min="0" max={stock} onChange={(e) => handleChange(Number(e.target.value))}></input>
                 <button onClick={incrementCount}>+</button>
             </div>
+            <p>Items in Stock: {stock - count}</p>
         </div>
     );
 }
