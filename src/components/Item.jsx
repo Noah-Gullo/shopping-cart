@@ -34,7 +34,7 @@ export default function Item({title="Example Title", image, description, price, 
             <img className="itemImg" src={image} alt={title} title={description}/>
             <div className="stockFields">
                 <button onClick={decrementCount}>-</button>
-                <input type="number" value={count} placeholder="0" min="0" max={stock} onChange={(e) => handleChange(Number(e.target.value))}></input>
+                <input type="number" value={count} placeholder="0" min="0" max={stock} onChange={(e) => handleChange(Math.floor(Number(e.target.value)))}></input>
                 <button onClick={incrementCount}>+</button>
             </div>
             <p>Items in Stock: {stock - count}</p>

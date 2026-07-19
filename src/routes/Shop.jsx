@@ -44,7 +44,6 @@ export default function Shop() {
     }
 
     setCartProducts(cartProductsCopy);
-    console.log(cartProducts);
   }
 
 
