@@ -3,9 +3,9 @@ import '../App.css'
 
 export default function Home() {
   return (
-    <>
+    <div id="cart">
         <Navbar></Navbar>
         <h1>Cart</h1>
-    </>
+    </div>
   )
 }
