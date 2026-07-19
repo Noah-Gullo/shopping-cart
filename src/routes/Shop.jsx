@@ -34,9 +34,11 @@ export default function Shop() {
     <div id="shop">
         <Navbar></Navbar>
         <h1 className="title">Shop</h1>
-        {products.map(product => (
-          <Item title={product.title} image={product.image} description={product.description} price={product.price} stock={product.rating.count}></Item>
-        ))}
+        <div id="itemContainer">
+          {products.map(product => (
+            <Item key={product.title} title={product.title} image={product.image} description={product.description} price={product.price} stock={product.rating.count}></Item>
+          ))}
+        </div>
     </div>
   )
 }

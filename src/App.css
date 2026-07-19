@@ -42,3 +42,26 @@
     display: flex;
     justify-self: center;
 }
+
+#itemContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.item{
+    border: 2px solid black;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.itemImg{
+    width: 5em;
+    height: auto;
+}
+
+.itemTitle{
+    width: 15em;
+    height: auto;
+}
