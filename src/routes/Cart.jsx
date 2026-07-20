@@ -39,8 +39,7 @@ export default function Cart({itemCount, cart = [], updateCartProducts}) {
         setCartProducts(cartProductsCopy);
         updateCartProducts(cartProductsCopy);
   }
-
-  console.log(cartProducts);
+  
   return (
     <div id="cart">
         <Navbar itemCount={itemCount}></Navbar>
@@ -52,7 +51,7 @@ export default function Cart({itemCount, cart = [], updateCartProducts}) {
             handleCartProducts={handleCartProducts}></Item>
           ))}
         </div>
-        <h2 id="totalPrice">Total Price: ${Math.ceil(calculateTotal() * 100) / 100%}</h2> 
+        <h2 id="totalPrice">Total Price: ${Math.ceil(calculateTotal() * 100) / 100}</h2> 
     </div>
   )
 }
