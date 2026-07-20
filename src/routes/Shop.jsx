@@ -30,7 +30,7 @@ export default function Shop({itemCount, savedProducts, updateCartProducts}) {
         for(let i = 0; i < cartProductsCopy.length; i++){
             if(cartProductsCopy[i].title == newProduct.title){
                 if(newProduct.count != 0){
-                cartProductsCopy.splice(i, 1, newProduct);
+                    cartProductsCopy.splice(i, 1, newProduct);
                 }else{
                     cartProductsCopy.splice(i, 1);
                 }

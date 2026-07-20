@@ -5,6 +5,7 @@ import '../App.css'
 
 export default function Cart({itemCount, cart = [], updateCartProducts}) {
   const [cartProducts, setCartProducts] = useState(cart);
+  
   function handleCartProducts(newProduct){
         const cartProductsCopy = cartProducts;
 
@@ -31,14 +32,16 @@ export default function Cart({itemCount, cart = [], updateCartProducts}) {
         updateCartProducts(cartProductsCopy);
   }
 
+  console.log(cartProducts);
   return (
     <div id="cart">
         <Navbar itemCount={itemCount}></Navbar>
         <h1 className="title">Cart</h1>
         <div id="itemContainer">
           {cart.map(product => (
-            <Item className="cartItem" cartCount={product.count} key={product.title} isShop={false}
-             title={product.title} price={product.price} stock={product.stock} handleCartProducts={handleCartProducts}/>
+            <Item key={product.title} isShop={false} title={product.title}
+            price={product.price} cartCount = {product.count} stock={product.stock}
+            handleCartProducts={handleCartProducts}></Item>
           ))}
         </div>
     </div>
