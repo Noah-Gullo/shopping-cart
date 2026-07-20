@@ -38,6 +38,7 @@ export default function Item({title="Example Title", image, description, price, 
                 <button onClick={incrementCount}>+</button>
             </div>
             <p>Items in Stock: {stock - count}</p>
+            <p>Price: ${price}</p>
         </div>
     );
 }

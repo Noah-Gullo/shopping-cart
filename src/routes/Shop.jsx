@@ -4,7 +4,7 @@ import '../App.css'
 import { useEffect, useState } from "react"
 import js from "@eslint/js";
 
-export default function Shop({savedProducts, updateCartProducts}) {
+export default function Shop({itemCount, savedProducts, updateCartProducts}) {
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState(savedProducts);
 
@@ -59,7 +59,7 @@ export default function Shop({savedProducts, updateCartProducts}) {
 
   return (
     <div id="shop">
-        <Navbar></Navbar>
+        <Navbar itemCount={itemCount}></Navbar>
         <h1 className="title">Shop</h1>
         <div id="itemContainer">
           {products.map(product => (
