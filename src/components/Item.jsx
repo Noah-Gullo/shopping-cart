@@ -4,7 +4,7 @@ export default function Item({isShop = true, title="Example Title", image, descr
     const [count, setCount] = useState(cartCount);
 
     function handleChange(newCount){
-        const currItem = {"title": title, "image": image, "price": price, "count": newCount, "stock":stock};
+        const currItem = {"title": title, "image": image, "price": price, "count": newCount, "stock": stock};
         if(newCount >= 0 && newCount <= stock){        
             setCount(newCount);
             handleCartProducts(currItem);
@@ -48,6 +48,7 @@ export default function Item({isShop = true, title="Example Title", image, descr
                 <p className="itemTitle">({cartCount}) {title}</p>
                 <div className="stockFields">
                     <button onClick={decrementCount}>-</button>
+                    <input type="number" value={cartCount} placeholder="0" min="0" max={stock} onChange={(e) => handleChange(Math.floor(Number(e.target.value)))}></input>
                     <button onClick={incrementCount}>+</button>
                 </div>
             </div>}

@@ -6,6 +6,14 @@ import '../App.css'
 export default function Cart({itemCount, cart = [], updateCartProducts}) {
   const [cartProducts, setCartProducts] = useState(cart);
   
+  function calculateTotal(){
+    let total = 0.0;
+    for(let i = 0; i < cartProducts.length; i++){
+        total = cartProducts[i].count * cartProducts[i].price;
+    }
+    return total;
+  }
+
   function handleCartProducts(newProduct){
         const cartProductsCopy = cartProducts;
 
@@ -44,6 +52,7 @@ export default function Cart({itemCount, cart = [], updateCartProducts}) {
             handleCartProducts={handleCartProducts}></Item>
           ))}
         </div>
+        <h2 id="totalPrice">Total Price: ${Math.ceil(calculateTotal() * 100) / 100%}</h2> 
     </div>
   )
 }
