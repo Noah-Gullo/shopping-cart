@@ -12,6 +12,7 @@ export default function Router(){
     function updateCartProducts(newCartProducts){
         setCartProducts(newCartProducts);
         getItemCount();
+        console.log(newCartProducts);
     }
 
     function getItemCount(){
@@ -34,7 +35,7 @@ export default function Router(){
         },
         {
             path: "/cart",
-            element: <Cart itemCount={itemCount} cart={cartProducts}/>,
+            element: <Cart itemCount={itemCount} cart={cartProducts} updateCartProducts={updateCartProducts}/>,
         }
     ]);
     

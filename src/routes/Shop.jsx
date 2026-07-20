@@ -63,7 +63,7 @@ export default function Shop({itemCount, savedProducts, updateCartProducts}) {
         <h1 className="title">Shop</h1>
         <div id="itemContainer">
           {products.map(product => (
-            <Item key={product.title} title={product.title} image={product.image} 
+            <Item key={product.title} isShop={true} title={product.title} image={product.image} 
             description={product.description} price={product.price} stock={product.rating.count}
             handleCartProducts={handleCartProducts}></Item>
           ))}
